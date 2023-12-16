@@ -16,7 +16,6 @@ user1 = User.create(
 )
 file = URI.open("https://avatars.githubusercontent.com/u/142075557?v=4")
 user1.photo.attach(io: file, filename: "leo.png", content_type: "image/png")
-# Antonio es comprador
 user1.save
 puts "El usuario #{user1.name} se a creado correctamente"
 
@@ -32,7 +31,6 @@ file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_2
 user2.photo.attach(io: file, filename: "antonio.png", content_type: "image/png")
 user2.save
 puts "El usuario #{user2.name} se a creado correctamente"
-# Marco es vendedor y comprador
 
 user3 = User.create(
   email: 'marco.soria@pucp.edu.pe',
@@ -85,7 +83,7 @@ product3 = Product.new(
 )
 
 file = URI.open("https://http2.mlstatic.com/D_NQ_NP_920366-MLC40345636342_012020-O.webp")
-product3.photo.attach(io: file, filename: "calcetines_bamboo.png", content_type: "image/png")
+product3.photo.attach(io: file, filename: "compostera.png", content_type: "image/png")
 product3.save
 puts "El producto #{product3.title} se a creado correctamente"
 
@@ -103,14 +101,105 @@ product4.save
 puts "El producto #{product4.title} se a creado correctamente"
 
 product5 = Product.new(
-  title: 'Cepillos de dientes de bambu',
-  description: 'Pack 12 unidades cepillo de dientes Bambú cerdas de fibra de carbón. Ecológico, biodegradable.',
+  title: 'Zapatero Y Banco De Bambú',
+  description: 'Zapatero y banco de bambú, el producto viene separado en partes, con instrucciones para su armado',
   quantity: 15,
-  price: 12.99,
+  price: 40.99,
   user: user2,
 )
 
 file = URI.open("https://http2.mlstatic.com/D_NQ_NP_637746-MLC69202031360_052023-O.webp")
-product5.photo.attach(io: file, filename: "cepillo_bamboo.png", content_type: "image/png")
+product5.photo.attach(io: file, filename: "zapatero_bamboo.png", content_type: "image/png")
 product5.save
-puts "El producto #{product4.title} se a creado correctamente"
+puts "El producto #{product5.title} se a creado correctamente"
+
+product6 = Product.new(
+  title: 'Bolsas De Basura Biodegradable',
+  description: 'Bolsa de Basura Ecológica Pequeña para Escritorio o Baño. 100 unidades por rollo. 37 x 51 cms.',
+  quantity: 15,
+  price: 7.00,
+  user: user1,
+)
+
+file = URI.open("https://http2.mlstatic.com/D_NQ_NP_936496-MLC50512378463_062022-O.webp")
+product6.photo.attach(io: file, filename: "bolsas_de_basura.png", content_type: "image/png")
+product6.save
+puts "El producto #{product6.title} se a creado correctamente"
+
+product7 = Product.new(
+  title: 'Set Envoltorio Reutilizable Algodón Y Cera De Abeja',
+  description: 'Envoltorios de tela de algodón con cera de abeja que permite envolver fuentes o alimentos para mantener su condición. Son reutilizables y una vez que pierden su vida útil los puedes compostar.',
+  quantity: 15,
+  price: 7.00,
+  user: user1,
+)
+
+file = URI.open("https://http2.mlstatic.com/D_NQ_NP_803057-MLC43207227180_082020-O.webp")
+product7.photo.attach(io: file, filename: "envoltorio_compostable.png", content_type: "image/png")
+product7.save
+puts "El producto #{product7.title} se a creado correctamente"
+
+product8 = Product.new(
+  title: 'Chocolate Semi Bitter 63% Cacao',
+  description: 'Chocolate en lenteja. Apto para el consumo de personas veganas.',
+  quantity: 30,
+  price: 15.00,
+  user: user2,
+)
+
+file = URI.open("https://http2.mlstatic.com/D_NQ_NP_900168-MLU69556144104_052023-O.webp")
+product8.photo.attach(io: file, filename: "chocolate_semi_bitter.png", content_type: "image/png")
+product8.save
+puts "El producto #{product8.title} se a creado correctamente"
+
+product9 = Product.new(
+  title: 'Leche De Coco Orgánica 400 Ml',
+  description: 'Leche de coco, obtenida a partir de cocos frescos.',
+  quantity: 23,
+  price: 18.00,
+  user: user3,
+)
+
+file = URI.open("https://http2.mlstatic.com/D_NQ_NP_773426-MLU72427328853_102023-O.webp")
+product9.photo.attach(io: file, filename: "leche_coco.png", content_type: "image/png")
+product9.save
+puts "El producto #{product9.title} se a creado correctamente"
+
+product10 = Product.new(
+  title: 'Hisopos De Algodón Con Varita De Bambú',
+  description: 'Hechas de algodón y madera de bambú, biodegradables y compostables.',
+  quantity: 23,
+  price: 18.00,
+  user: user1,
+)
+
+file = URI.open("https://http2.mlstatic.com/D_NQ_NP_916689-MLC69202339538_052023-O.webp")
+product10.photo.attach(io: file, filename: "hisopos_algodon.png", content_type: "image/png")
+product10.save
+puts "El producto #{product10.title} se a creado correctamente"
+
+product11 = Product.new(
+  title: 'Hilo Dental Dobakaru Origen Vegetal',
+  description: 'Hilo Dental 100% PLA (origen vegetal) con cera de candelilla y Xylitol natural, sabor a menta.',
+  quantity: 15,
+  price: 10.00,
+  user: user2,
+)
+
+file = URI.open("https://http2.mlstatic.com/D_NQ_NP_749116-MLA69477867682_052023-O.webp")
+product11.photo.attach(io: file, filename: "hilo_dental.png", content_type: "image/png")
+product11.save
+puts "El producto #{product11.title} se a creado correctamente"
+
+product12 = Product.new(
+  title: 'Minigarden Para Huerta Vertical Y Muro Verde',
+  description: 'Fabricado en polipropileno copolímero de alta resistencia y contiene aditivos que proporcionan protección UV.',
+  quantity: 21,
+  price: 7.00,
+  user: user1,
+)
+
+file = URI.open("https://http2.mlstatic.com/D_NQ_NP_749116-MLA69477867682_052023-O.webp")
+product12.photo.attach(io: file, filename: "mini_garden.png", content_type: "image/png")
+product12.save
+puts "El producto #{product12.title} se a creado correctamente"
