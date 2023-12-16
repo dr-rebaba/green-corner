@@ -3,11 +3,11 @@ class CreateProducts < ActiveRecord::Migration[7.0]
     create_table :products do |t|
       t.string :title
       t.text :description
-      t.text :details
-      t.integer :category
+      t.string :details
+      t.text :category, array: true, default: []
       t.integer :quantity
-      t.float :price
-      t.float :virtual_cash
+      t.decimal :price
+      t.decimal :virtual_cash, precision: 10, scale: 2
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

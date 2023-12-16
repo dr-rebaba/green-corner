@@ -3,9 +3,9 @@ class CreateOrders < ActiveRecord::Migration[7.0]
     create_table :orders do |t|
       t.references :user, null: false, foreign_key: true
       t.date :purchase_date
-      t.float :amount
+      t.decimal :amount
       t.integer :status
-      t.float :virtual_cash
+      t.decimal :virtual_cash, precision: 10, scale: 2
 
       t.timestamps
     end
