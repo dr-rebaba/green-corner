@@ -68,7 +68,7 @@ puts "El usuario #{user3.name} se a creado correctamente"
 # )
 # puts "El punto de reciclaje #{recycle_point1} se ha creado correctamente"
 
-# Products
+Products
 
 product1 = Product.new(
   title: 'Pares Calcetines Bamboo Deportivos',
