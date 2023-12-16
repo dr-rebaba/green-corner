@@ -103,14 +103,42 @@ product4.save
 puts "El producto #{product4.title} se a creado correctamente"
 
 product5 = Product.new(
-  title: 'Cepillos de dientes de bambu',
-  description: 'Pack 12 unidades cepillo de dientes Bambú cerdas de fibra de carbón. Ecológico, biodegradable.',
+  title: 'Zapatero Y Banco De Bambú',
+  description: 'Zapatero y banco de bambú, el producto viene separado en partes, con instrucciones para su armado',
   quantity: 15,
-  price: 12.99,
+  price: 40.99,
   user: user2,
 )
 
 file = URI.open("https://http2.mlstatic.com/D_NQ_NP_637746-MLC69202031360_052023-O.webp")
-product5.photo.attach(io: file, filename: "cepillo_bamboo.png", content_type: "image/png")
+product5.photo.attach(io: file, filename: "zapatero_bamboo.png", content_type: "image/png")
 product5.save
-puts "El producto #{product4.title} se a creado correctamente"
+puts "El producto #{product5.title} se a creado correctamente"
+
+product6 = Product.new(
+  title: 'Bolsas De Basura Biodegradable',
+  description: 'Bolsa de Basura Ecológica Pequeña para Escritorio o Baño. 100 unidades por rollo. 37 x 51 cms.',
+  quantity: 15,
+  price: 7.00,
+  user: user1,
+)
+
+file = URI.open("https://http2.mlstatic.com/D_NQ_NP_936496-MLC50512378463_062022-O.webp")
+product6.photo.attach(io: file, filename: "bolsas_de_basura.png", content_type: "image/png")
+product6.save
+puts "El producto #{product6.title} se a creado correctamente"
+
+product7 = Product.new(
+  title: 'Set Envoltorio Reutilizable Algodón Y Cera De Abeja',
+  description: 'Envoltorios de tela de algodón con cera de abeja que permite envolver fuentes o alimentos para mantener su condición. Son reutilizables y una vez que pierden su vida útil los puedes compostar.',
+  quantity: 15,
+  price: 7.00,
+  user: user1,
+)
+
+file = URI.open("https://http2.mlstatic.com/D_NQ_NP_803057-MLC43207227180_082020-O.webp")
+product7.photo.attach(io: file, filename: "envoltorio_compostable-png", content_type: "image/png")
+product7.save
+puts "El producto #{product7.title} se a creado correctamente"
+
+
