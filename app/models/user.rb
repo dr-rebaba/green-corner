@@ -10,4 +10,9 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :recycle_points
+  # validates :name, :last_name, :phone_number, presence: true
+
+  def create_cart
+    self.cart = Cart.new
+  end
 end
