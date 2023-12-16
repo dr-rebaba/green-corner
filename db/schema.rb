@@ -106,8 +106,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_15_010701) do
   end
 
   create_table "recycle_points", force: :cascade do |t|
-    t.integer "type"
     t.string "name"
+    t.text "category", default: [], array: true
     t.text "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

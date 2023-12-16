@@ -59,14 +59,14 @@ puts "El usuario #{user3.name} se a creado correctamente"
 
 # Recycle points
 
-# recycle_point1 = RecyclePoint.create!(
-#   type: 1,
-#   address: address1,
-#   name: "punto1",
-#   description: "Primer punto",
-#   user: user1
-# )
-# puts "El punto de reciclaje #{recycle_point1} se ha creado correctamente"
+recycle_point1 = RecyclePoint.create!(
+  category: [1,2,3,4],
+  address: address1,
+  name: "punto1",
+  description: "Primer punto",
+  user: user1
+)
+puts "El punto de reciclaje #{recycle_point1} se ha creado correctamente"
 
 # Products
 
