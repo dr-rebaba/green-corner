@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  resources :products
+  
   resources :carts, only: [:show]
   resources :cart_products, only: [:create, :destroy]
 
@@ -14,4 +17,5 @@ Rails.application.routes.draw do
   resources :recycle_points
 
   resources :addresses, except: [:index]
+
 end
