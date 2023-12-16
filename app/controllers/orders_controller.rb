@@ -8,16 +8,26 @@ class OrdersController < ApplicationController
   def create
     @cart = current_user.cart
     if current_user.cart.cart_products.empty?
-      flash[:alert] = "Cannot place an order with an empty cart."
+      flash[:alert] = "No se puede crear una orden con un carrito vacío."
       redirect_to cart_path(@cart)
     else
-      @order = Order.new(user: current_user, status: 'pending', date: Date.today)
+      total_virtual_cash = @cart.cart_products.sum(:virtual_cash)
+      total_amount = @cart.cart_products.sum(:price)
+
+      @order = Order.new(
+        user: current_user,
+        status: 0,
+        purchase_date: Date.today,
+        virtual_cash: total_virtual_cash,
+        amount: total_amount
+      )
+
       if @order.save
         create_order_products(@order, @cart.cart_products)
         @cart.destroy
-        redirect_to order_path(@order), notice: 'Order placed successfully.'
+        redirect_to order_path(@order), notice: 'La orden se ha creado correctamente.'
       else
-        redirect_to cart_path, alert: 'Unable to place the order.'
+        redirect_to cart_path, alert: 'No se logró completar tu orden.'
       end
     end
   end
@@ -26,6 +36,19 @@ class OrdersController < ApplicationController
     @order = current_user.orders.find(params[:id])
     @order_products = @order.order_products.includes(:product)
     @total_due = calculate_total_due(@order_products)
+  end
+
+  def cancel
+    @order = current_user.orders.find(params[:id])
+
+    if @order.status == 0
+      @order.update(status: 2)
+      flash[:notice] = 'La orden se ha cancelado correctamente.'
+    else
+      flash[:alert] = 'No se puede cancelar una orden que ya ha sido procesada.'
+    end
+
+    redirect_to orders_path
   end
 
   helper_method :display_order_status, :display_order_status_class
@@ -50,11 +73,13 @@ class OrdersController < ApplicationController
   def display_order_status(status)
     case status
     when 0
-      'Pending'
+      'Pendiente'
     when 1
-      'Delivered'
+      'Entregada'
+    when 2
+      'Cancelada'
     else
-      'Unknown Status'
+      'Otro'
     end
   end
 end
