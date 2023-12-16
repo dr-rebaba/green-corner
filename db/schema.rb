@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_15_014404) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_15_010701) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_15_014404) do
     t.bigint "cart_id", null: false
     t.integer "quantity"
     t.decimal "price", precision: 10, scale: 2
-    t.decimal "virtual_cash", precision: 10, scale: 2
+    t.decimal "virtual_cash"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_cart_products_on_cart_id"
@@ -83,7 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_15_014404) do
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.date "purchase_date"
-    t.decimal "amount", precision: 10, scale: 2
+    t.decimal "amount"
     t.integer "status"
     t.decimal "virtual_cash", precision: 10, scale: 2
     t.datetime "created_at", null: false
@@ -94,10 +94,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_15_014404) do
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.text "details"
-    t.integer "category"
+    t.string "details"
+    t.text "category", default: [], array: true
     t.integer "quantity"
-    t.decimal "price", precision: 10, scale: 2
+    t.decimal "price"
     t.decimal "virtual_cash", precision: 10, scale: 2
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -125,6 +125,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_15_014404) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.string "last_name"
     t.decimal "total_virtual_cash", precision: 10, scale: 2
     t.boolean "is_seller"
