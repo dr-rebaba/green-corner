@@ -68,7 +68,7 @@ recycle_point1 = RecyclePoint.create!(
 )
 puts "El punto de reciclaje #{recycle_point1} se ha creado correctamente"
 
-Products
+# Products
 
 product1 = Product.new(
   title: 'Pares Calcetines Bamboo Deportivos',
